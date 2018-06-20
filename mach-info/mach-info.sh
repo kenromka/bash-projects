@@ -28,10 +28,16 @@ printf $format_string "Date:" $ndate
 printf $format_string "Time:" $ntime
 }
 logflag=false;
-while getopts :l option; do
+while getopts :lh option; do
 		case $option in
 			l)logflag=true;;
-			?)echo -e "There is no $OPTARG option\n";;
+			h)echo -e "\033[1mNAME\033[0m\n\tmach-info.sh - prints out some information about machine to the terminal or .log file\n"
+			echo -e "\033[1mSYNOPSIS\n\tmach-info.sh \033[0m[OPTION]\n"
+			echo -e "\033[1mDESCRIPTION\033[0m\n\tPrint out information about machine, user, host, battery, bluetooth, memory.\n\n\t\033[1m-l\033[0m\n\t\tprint info out to .log file\n\t\033[1m-h\033[0m\n\t\tshow this helpdesk and exit\n"
+			echo -e "\033[1mAUTHORS\033[0m\n\tRoman Kenig, kenromka@yandex.ru\n"
+			exit 0;;	
+			?)echo -e "There is no $OPTARG option\nInput with flag \033[1m-h\033[0m to see helpdesk"
+			exit 0;;
 		esac
 done
 printing "\033[1;33;44m" "\033[0;33m" "\033[0m"
