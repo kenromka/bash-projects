@@ -1,0 +1,2 @@
+~/folder/folder2
+~/folder3/file.txt
